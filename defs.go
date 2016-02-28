@@ -102,7 +102,7 @@ var mapping = map[string]string{
 	"IpForwDatagrams":                 "ip.datagrams.forwarded",
 	"IpInUnknownProtos":               "ip.datagrams.in_unknown_protos",
 	"IpInDiscards":                    "ip.datagrams.in_discards",
-	"IpInDelivers":                    "ip.datagrams.in_in_delivers",
+	"IpInDelivers":                    "ip.datagrams.in_delivers",
 	"IpOutRequests":                   "ip.datagrams.out_requests",
 	"IpOutDiscards":                   "ip.datagrams.out_discards",
 	"IpOutNoRoutes":                   "ip.datagrams.out_no_routes",
