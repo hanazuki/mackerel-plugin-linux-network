@@ -56,7 +56,7 @@ var mapping = map[string]string{
 	"TcpExtTCPTimeouts":               "tcp.timeout.timeouts",
 	"TcpExtTCPRenoRecoveryFail":       "",
 	"TcpExtTCPSackRecoveryFail":       "",
-	"TcpExtTCPSchedulerFailed":        "tcp.misc_erorrs.scheduler_failed",
+	"TcpExtTCPSchedulerFailed":        "tcp.misc_errors.scheduler_failed",
 	"TcpExtTCPRcvCollapsed":           "tcp.misc_errors.rcv_collapsed",
 	"TcpExtTCPDSACKOldSent":           "",
 	"TcpExtTCPDSACKOfoSent":           "",
@@ -216,7 +216,14 @@ var graphs = map[string]mp.Graphs{
 			{Name: "*", Label: "%1", Diff: true},
 		},
 	},
-	"tcp.aborts": {
+	"tcp.timeout": {
+		Label: "Network: TCP Timeouts",
+		Unit:  "integer",
+		Metrics: []mp.Metrics{
+			{Name: "*", Label: "%1", Diff: true},
+		},
+	},
+	"tcp.abort": {
 		Label: "Network: TCP Aborted Connections",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
