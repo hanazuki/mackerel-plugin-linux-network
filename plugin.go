@@ -14,7 +14,7 @@ type source struct {
 	parser parser
 }
 
-func (s *source) read() (values map[string]uint64, err error) {
+func (s *source) read() (values map[string]string, err error) {
 	file, err := os.Open(s.path)
 	if err != nil {
 		return

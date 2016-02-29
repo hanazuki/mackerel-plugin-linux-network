@@ -4,11 +4,10 @@ import (
 	"bufio"
 	"fmt"
 	"io"
-	"strconv"
 	"strings"
 )
 
-type parser func(io.Reader) map[string]uint64
+type parser func(io.Reader) map[string]string
 
 // Split "A: B C" into ("A", ["B", "C"])
 func splitKeyValues(s, kvSep string) (key string, vals []string, err error) {
@@ -44,8 +43,8 @@ func splitKeyValue(s string) (key string, val string, err error) {
 //   ...
 //
 // into a map {"KeyFoo": 0, "KeyBar": 1, "KeyBaz": 42, ...}.
-func parseCompact(file io.Reader) map[string]uint64 {
-	result := make(map[string]uint64)
+func parseCompact(file io.Reader) map[string]string {
+	result := make(map[string]string)
 
 	for scanner := bufio.NewScanner(file); scanner.Scan(); {
 		key, names, err := splitKeyValues(scanner.Text(), ": ")
@@ -61,10 +60,7 @@ func parseCompact(file io.Reader) map[string]uint64 {
 		}
 
 		for i := 0; i < len(names); i++ {
-			val, err := strconv.ParseUint(values[i], 10, 64)
-			if err == nil {
-				result[key+names[i]] = val
-			}
+			result[key+names[i]] = values[i]
 		}
 	}
 
@@ -80,8 +76,8 @@ func parseCompact(file io.Reader) map[string]uint64 {
 //   ...
 //
 // into a map {"KeyFoo": 0, "KeyBar": 1, "KeyBaz": 42, ...}.
-func parseTable(file io.Reader) map[string]uint64 {
-	result := make(map[string]uint64)
+func parseTable(file io.Reader) map[string]string {
+	result := make(map[string]string)
 
 	for scanner := bufio.NewScanner(file); scanner.Scan(); {
 		key, value, err := splitKeyValue(scanner.Text())
@@ -90,10 +86,7 @@ func parseTable(file io.Reader) map[string]uint64 {
 			continue
 		}
 
-		valueInt, err := strconv.ParseUint(value, 10, 64)
-		if err == nil {
-			result[key] = valueInt
-		}
+		result[key] = value
 	}
 
 	return result
