@@ -26,14 +26,14 @@ var mapping = map[string]string{
 	"TcpExtDelayedACKLost":            "tcp.delayed_acks.lost",
 	"TcpExtListenOverflows":           "tcp.misc_errors.listen_overflows",
 	"TcpExtListenDrops":               "tcp.misc_errors.listen_drops",
-	"TcpExtTCPPrequeued":              "",
-	"TcpExtTCPDirectCopyFromBacklog":  "",
-	"TcpExtTCPDirectCopyFromPrequeue": "",
-	"TcpExtTCPPrequeueDropped":        "",
-	"TcpExtTCPHPHits":                 "",
-	"TcpExtTCPHPHitsToUser":           "",
-	"TcpExtTCPPureAcks":               "",
-	"TcpExtTCPHPAcks":                 "",
+	"TcpExtTCPPrequeued":              "tcp.queueing.prequeued",
+	"TcpExtTCPDirectCopyFromBacklog":  "tcp.queueing.direct_copy_from_backlog",
+	"TcpExtTCPDirectCopyFromPrequeue": "tcp.queueing.direct_copy_from_prequeue",
+	"TcpExtTCPPrequeueDropped":        "tcp.queueing.prequeue_dropped",
+	"TcpExtTCPHPHits":                 "tcp.header_prediction.hits",
+	"TcpExtTCPHPHitsToUser":           "tcp.header_prediction.hits_to_user",
+	"TcpExtTCPPureAcks":               "tcp.header_prediction.pure_acks",
+	"TcpExtTCPHPAcks":                 "tcp.header_prediction.acks",
 	"TcpExtTCPRenoRecovery":           "",
 	"TcpExtTCPSackRecovery":           "",
 	"TcpExtTCPSACKReneging":           "",
@@ -232,6 +232,20 @@ var graphs = map[string]mp.Graphs{
 	},
 	"tcp.delayed_acks": {
 		Label: "Network: TCP Delayed ACKs",
+		Unit:  "integer",
+		Metrics: []mp.Metrics{
+			{Name: "*", Label: "%1", Diff: true},
+		},
+	},
+	"tcp.queueing": {
+		Label: "Network: TCP Queueing",
+		Unit:  "integer",
+		Metrics: []mp.Metrics{
+			{Name: "*", Label: "%1", Diff: true},
+		},
+	},
+	"tcp.header_prediction": {
+		Label: "Network: TCP Header Prediction",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
 			{Name: "*", Label: "%1", Diff: true},
