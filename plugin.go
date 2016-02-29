@@ -7,6 +7,7 @@ import (
 
 type pluginOpts struct {
 	prefix string
+	showMetrics map[string]bool
 }
 
 type source struct {

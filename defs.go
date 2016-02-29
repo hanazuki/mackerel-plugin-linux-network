@@ -320,7 +320,9 @@ func (p *pluginOpts) GraphDefinition() map[string]mp.Graphs {
 	var defs = make(map[string]mp.Graphs)
 
 	for name, graph := range graphs {
-		defs[p.prefix + name] = graph
+		if v, ok := p.showMetrics[name]; !ok || v {
+			defs[p.prefix + name] = graph
+		}
 	}
 
 	return defs
