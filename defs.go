@@ -178,140 +178,140 @@ var graphs = map[string]mp.Graphs{
 		Label: "Network: TCP SYN Cookies",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"tcp.sockets": {
 		Label: "Network: TCP Sockets",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"tcp.connections": {
 		Label: "Network: TCP Connections",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: false},
+			{Name: "*", Label: "%1", Diff: false, Type: "uint64"},
 		},
 	},
 	"tcp.segments": {
 		Label: "Network: TCP Segments",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"tcp.timewait": {
 		Label: "Network: TCP TIME_WAITs",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"tcp.misc_errors": {
 		Label: "Network: TCP Misc Errors",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"tcp.timeout": {
 		Label: "Network: TCP Timeouts",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"tcp.abort": {
 		Label: "Network: TCP Aborted Connections",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"tcp.paws": {
 		Label: "Network: TCP PAWS",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"tcp.delayed_acks": {
 		Label: "Network: TCP Delayed ACKs",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"tcp.queueing": {
 		Label: "Network: TCP Queueing",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"tcp.header_prediction": {
 		Label: "Network: TCP Header Prediction",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"udp.datagrams": {
 		Label: "Network: UDP Datagrams",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"udp.errors": {
 		Label: "Network: UDP Errors",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"icmp.messages": {
 		Label: "Network: ICMP Messages",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"ip.datagrams": {
 		Label: "Network: IP Datagrams",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"ip.packet_type": {
 		Label: "Network: IP Packets by Type",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"ip.octets": {
 		Label: "Network: IP Octets",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"ip.reassembly": {
 		Label: "Network: IP Packet Reassembly",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 	"ip.fragmentation": {
 		Label: "Network: IP Packet Fragmentation",
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
-			{Name: "*", Label: "%1", Diff: true},
+			{Name: "*", Label: "%1", Diff: true, Type: "uint64"},
 		},
 	},
 }
