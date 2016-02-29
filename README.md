@@ -16,8 +16,8 @@ command="/usr/local/bin/mackerel-plugin-linux-network"
 
 #### General options
 ```
--prefix:    a prefix string to the metrics names (defaule: "network.")
--tempfile:  a path to temporary file in which metrics values are stored in order to calucurate difference
+-prefix    a prefix string to the metrics names (defaule: "network.")
+-tempfile  a path to temporary file in which metrics values are stored in order to calucurate difference
 ```
 
 #### Filtering options
@@ -26,12 +26,12 @@ Check out `mackerel-plugin-linux-network -help` for all the available options.
 
 Here are some examples:
 ```
--all:           Enable all metrics
--all=true:      Same as -all
--all=false:     Disable all metrics
--ip:            Enable all metrics under `ip.*`
--ip=false:      Disable all metrics under `ip.*`
--ip-datagrams:  Enable all metrics undler `ip.datagrams.*`
+-all           Enable all metrics
+-all=true      Same as -all
+-all=false     Disable all metrics
+-ip            Enable all metrics under `ip.*`
+-ip=false      Disable all metrics under `ip.*`
+-ip-datagrams  Enable all metrics undler `ip.datagrams.*`
 ```
 
 Note that the option given later in the command line takes the precedence:
