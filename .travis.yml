@@ -1,0 +1,12 @@
+language: go
+go:
+  - 1.6
+
+install:
+  - go get -u github.com/golang/lint/golint
+
+script:
+  - go vet ./...
+  - go test -v ./...
+  - golint ./... | tee ./golint.txt; test ! -s golint.txt
+  - GOOS=linux GOARCH=amd64 go build
