@@ -11,13 +11,18 @@ script:
   - golint ./... | tee ./golint.txt; test ! -s golint.txt
   - goxc -tasks='validate,xc,archive,rmbin' -d=. -bc='linux,386 linux,amd64'
 
+before_deploy:
+  - cd snapshot
+  - sha256sum * > SHA256SUMS
+
 deploy:
   provider: releases
   api_key:
     secure: mT4nRq2uV4nUuKYZTnM7/XbztGv2aRx+9ujGp8axOuYR9QU6UEUii+GwihRFGq5OSIcjjg2Vnnya5irZHBstKgtpv5LuLmVfPz8YT/I3CxzQhdvq4rV8l7+mTn372Mcj4db6CEZjs8bLvydL7RArp+WatHBEAoh0zwqXPOVaIuvIf0mFnYLoxrkob/YOOztc6ecma9JYWnX9LzFwnFKhcH3fhO29SLGktdqFO9H+thwdUq3pPoToK74r9ut2MN1x+DNuan0QYc0Jy/qyKVrqPxAC8mIRLfMSlkdBqLlRFWxrBfAmsp6N2IqFJ1L8QcUcMPEvEvNbrxCWAL+6rvoElANURHdrZgNU2y7sXGinqrMeKCiZEXdP+I5a8v4NF88+s0TL9N+tnL+Y8AkDcz56rGAESqJYd/3hfx2+yQeQmKpo69ILx/14OhAYLHPQkH22LguGNZceVXAqqTpeO54dgkwEWci6vBYT2C70fC/1VIEYUAuHoJUV6qq/htkApYN+lzYMdnU4s8j8ApXC86XBySszbPkN0oBVCBG23r8s64zZQEjifjivjRpyhe34NlgHr6heLmohzRtA0xw98qU56dgai5mz5v1utaRGsQ3nBDdeVazm5piMj96SzfXORTvcgAVe5PUtZLtVmoi7eVHPCXSa7qKX6pUm+ORDwhdaYG8=
   file:
-    - snapshot/mackerel-plugin-linux-network_linux_386.tar.gz
-    - snapshot/mackerel-plugin-linux-network_linux_amd64.tar.gz
+    - SHA256SUMS
+    - mackerel-plugin-linux-network_linux_386.tar.gz
+    - mackerel-plugin-linux-network_linux_amd64.tar.gz
   on:
     repo: hanazuki/mackerel-plugin-linux-network
     tags: true
