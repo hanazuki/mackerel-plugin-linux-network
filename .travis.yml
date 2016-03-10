@@ -4,6 +4,7 @@ go:
 
 install:
   - go get -u github.com/golang/lint/golint
+  - go get ./...
 
 script:
   - go vet ./...
