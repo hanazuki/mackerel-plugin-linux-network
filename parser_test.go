@@ -22,7 +22,7 @@ UdpLite: 0 0 0 0 0 0 0 0
 	parsed := parseCompact(bytes.NewBufferString(procNetSnmp))
 
 	if len(parsed) != 85 {
-		t.Errorf("Parsed value should have the correct number of entries. %s exptected / %s actual. %v", 85, len(parsed), parsed)
+		t.Errorf("Parsed value should have the correct number of entries. %d exptected / %d actual. %v", 85, len(parsed), parsed)
 	}
 
 	if parsed["IpForwarding"] != "1" {
@@ -51,7 +51,7 @@ Ip6OutRequests                          230111
 	parsed := parseTable(bytes.NewBufferString(procNetSnmp6))
 
 	if len(parsed) != 11 {
-		t.Errorf("Parsed value should have the correct number of entries. %s expected /%s actual.", 11, len(parsed))
+		t.Errorf("Parsed value should have the correct number of entries. %d expected /%d actual.", 11, len(parsed))
 	}
 
 	if parsed["Ip6InDelivers"] != "261635" {

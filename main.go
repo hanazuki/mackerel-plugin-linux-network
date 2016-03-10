@@ -22,14 +22,13 @@ type showMetricsFlag struct {
 func (f *showMetricsFlag) String() string {
 	if v, ok := f.opts.showMetrics[f.prefix]; !ok || v {
 		return "true"
-	} else {
-		return "false"
 	}
+	return "false"
 }
 
 func (f *showMetricsFlag) Set(x string) error {
 	show := x != "false"
-	for g, _ := range graphs {
+	for g := range graphs {
 		if f.prefix == "" || g == f.prefix || strings.HasPrefix(g, f.prefix+".") {
 			f.opts.showMetrics[g] = show
 		}
@@ -57,7 +56,7 @@ func main() {
 	flag.StringVar(&opts.prefix, "prefix", "network.", "Prefix for metrics names")
 
 	flag.Var(&showMetricsFlag{prefix: "", opts: &opts.pluginOpts}, "all", "Show all metrics")
-	for g, _ := range graphs {
+	for g := range graphs {
 		for i := len(g); i != -1; i = strings.LastIndexByte(g[:i], '.') {
 			if gn := g[:i]; gn != "" {
 				if fn := strings.Replace(gn, ".", "-", -1); flag.Lookup(fn) == nil {

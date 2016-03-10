@@ -12,7 +12,7 @@ func TestMapping(t *testing.T) {
 		}
 
 		found := false
-		for g, _ := range graphs {
+		for g := range graphs {
 			if strings.HasPrefix(m, g + ".") {
 				found = true
 			}
@@ -24,7 +24,7 @@ func TestMapping(t *testing.T) {
 }
 
 func TestGraphs(t *testing.T) {
-	for g, _ := range graphs {
+	for g := range graphs {
 		found := false
 		for _, m := range mapping {
 			if strings.HasPrefix(m, g + ".") {
